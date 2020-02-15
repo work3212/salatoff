@@ -28,9 +28,9 @@ class CreateProductsTable extends Migration
 
             //connection
             $table->bigInteger('category_id')->unsigned();
-            $table->bigInteger('min_order')->nullable();
-            $table->bigInteger('implementation_period')->nullable();
-            $table->bigInteger('packaging')->nullable();
+            $table->bigInteger('min_order')->unsigned()->nullable();
+            $table->bigInteger('implementation_period')->unsigned()->nullable();
+            $table->bigInteger('packaging')->unsigned()->nullable();
 
             $table->timestamps();
         });

@@ -26,8 +26,8 @@ class CreateCategoriesTable extends Migration
             $table->text('class_top_menu')->nullable();
 
             //connection
-            $table->bigInteger('parent_heading');
-            $table->integer('parent_id')->default(0);
+            $table->bigInteger('heading')->unsigned();
+            $table->integer('parent')->default(0);
 
             //seo
             $table->text('seo_title')->nullable();
@@ -38,7 +38,7 @@ class CreateCategoriesTable extends Migration
 
 
         Schema::table('categories', function (Blueprint $table) {
-            $table->foreign('parent_heading')
+            $table->foreign('heading')
                 ->references('id')
                 ->on('headings')
                 ->onDelete('cascade');
