@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/recipes', 'Front\Recipes\RecipesCategoryController@showCategory');
+Route::get('/recipes/{slug}', 'Front\Recipes\RecipesCategoryController@showRecipe');

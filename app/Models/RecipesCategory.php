@@ -20,6 +20,7 @@ class RecipesCategory extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'seo_title',
         'seo_description',
