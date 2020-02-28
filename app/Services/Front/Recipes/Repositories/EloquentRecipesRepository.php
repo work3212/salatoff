@@ -3,23 +3,24 @@
 
 namespace App\Services\Front\Recipes\Repositories;
 
-use App\Models\RecipesCategory;
+
+use App\Models\Recipe;
 
 class EloquentRecipesRepository
 {
-    public function allCategory()
+    public function allProducts($category)
     {
-        $colums = ['id', 'name', 'slug'];
-        $result = RecipesCategory::orderBy('id', 'DESC')
-            ->select($colums)
-            ->paginate(config('front_paginate.recipes_category'));
+        $colums = ['id', 'name', 'slug', 'category_id'];
+        $result = Recipe::where('category_id', $category->id)
+            ->orderBy('id', 'DESC')
+            ->paginate(5);
         return $result;
     }
 
-    public function findCategory($slug)
+    public function findProduct($recipe)
     {
-        $colums = ['id', 'name', 'slug', 'seo_title', 'seo_description', 'seo_keywords'];
-        $result = RecipesCategory::where('slug', $slug)
+        $colums = ['id', 'name', 'slug', 'description', 'seo_title', 'seo_description', 'seo_keywords'];
+        $result = Recipe::where('slug', $recipe)
             ->select($colums)
             ->firstOrFail();
         return $result;

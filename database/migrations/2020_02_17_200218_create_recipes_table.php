@@ -16,6 +16,7 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 250);
+            $table->string('slug', 250)->unique();
             $table->text('description')->nullable();
             $table->bigInteger('category_id')->unsigned();
 

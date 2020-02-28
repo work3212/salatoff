@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 
 Route::get('/recipes', 'Front\Recipes\RecipesCategoryController@showCategory');
-Route::get('/recipes/{slug}', 'Front\Recipes\RecipesCategoryController@searchCategory');
+Route::get('/recipes/{category}', 'Front\Recipes\RecipesCategoryController@searchCategory');
+Route::get('/recipes/{category}/{recipe}', 'Front\Recipes\RecipesController@showRecipe');

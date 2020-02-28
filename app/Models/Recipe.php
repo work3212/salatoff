@@ -21,6 +21,7 @@ class Recipe extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'category_id',
         'seo_title',
