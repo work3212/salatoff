@@ -15,7 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['namespace' => 'Front'], function () {
+    /**
+     * Вывод данных по рецептам
+     */
+    Route::get('/recipes', 'Recipes\RecipesCategoryController@showCategory');
+    Route::get('/recipes/{category}', 'Recipes\RecipesCategoryController@searchCategory');
+    Route::get('/recipes/{category}/{recipe}', 'RecipesController@showRecipe');
 
-Route::get('/recipes', 'Front\Recipes\RecipesCategoryController@showCategory');
-Route::get('/recipes/{category}', 'Front\Recipes\RecipesCategoryController@searchCategory');
-Route::get('/recipes/{category}/{recipe}', 'Front\Recipes\RecipesController@showRecipe');
+    /**
+     * Вывод данных по блогу
+     */
+    Route::get('/blog', 'Blog\BlogController@showNews');
+    Route::get('/blog/{slug}', 'Blog\BlogController@searchNews');
+});
+
+
+
+
