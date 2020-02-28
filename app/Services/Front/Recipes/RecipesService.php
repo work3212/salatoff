@@ -17,6 +17,11 @@ class RecipesService
 
     public function getListCategory()
     {
-        return $this->recipesRepository->CategoryAll();
+        return $this->recipesRepository->allCategory();
+    }
+
+    public function getShowCategory($slug)
+    {
+        return $this->recipesRepository->findCategory($slug);
     }
 }

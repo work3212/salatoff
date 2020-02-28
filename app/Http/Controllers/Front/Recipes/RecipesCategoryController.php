@@ -19,6 +19,11 @@ class RecipesCategoryController extends FrontController
     {
         $category_list = $this->recipesService->getListCategory();
         dd($category_list);
+    }
 
+    public function searchCategory($slug)
+    {
+        $category = $this->recipesService->getShowCategory($slug);
+        dd($category);
     }
 }

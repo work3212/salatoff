@@ -26,4 +26,5 @@ class RecipesCategory extends Model
         'seo_description',
         'seo_keywords'
     ];
+
 }
